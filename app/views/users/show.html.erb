@@ -7,6 +7,23 @@
         (地域：<%= @user.location %>)
       </h1>
     </section>
+    
+    <%# following, follower のリンク%>
+    <div class="stats">
+      <a href="<%= followings_user_path(@user) %>">
+        <strong id="following" class="stat">
+          <%= @user.following_users.count %>
+        </strong>
+        following
+      </a>
+      <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers" class="stat">
+          <%= @user.follower_users.count %>
+        </strong>
+        followers
+      </a>
+    </div>
+    
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
