@@ -48,11 +48,6 @@ class UsersController < ApplicationController
     @users = @user.follower_users
     render 'show_follow'    
   end
-  
-  # タイムライン
-  def feed_items
-    Micropost.where(user_id: following_user_ids + [self.id])
-  end
 
   private
 
